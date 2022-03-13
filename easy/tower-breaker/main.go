@@ -18,27 +18,29 @@ import (
  *  2. INTEGER m
  */
 
+//Math Problem rather than programming solution
 func towerBreakers(n int32, m int32) int32 {
 	// Write your code here
 
-	//True == 1 False == 2
-	curPlayer, isFirstWin := true, true
+	//m heigth , n  number of tower
 
-	if isFirstWin {
+	//Because if the towers start out at 1 or there are an even number of towers, player 2 will win; else, player 1 wins.
+	if m == 1 || n%2 == 0 {
 		return 2
 	}
+
 	return 1
 }
 
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
-	checkError(err)
+	// stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	// checkError(err)
 
-	defer stdout.Close()
+	// defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
+	// writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
 	tTemp, err := strconv.ParseInt(strings.TrimSpace(readLine(reader)), 10, 64)
 	checkError(err)
@@ -57,10 +59,9 @@ func main() {
 
 		result := towerBreakers(n, m)
 
-		fmt.Fprintf(writer, "%d\n", result)
+		fmt.Printf("%d\n", result)
 	}
 
-	writer.Flush()
 }
 
 func readLine(reader *bufio.Reader) string {
