@@ -24,8 +24,23 @@ func towerBreakers(n int32, m int32) int32 {
 
 	//m heigth , n  number of tower
 
-	//Because if the towers start out at 1 or there are an even number of towers, player 2 will win; else, player 1 wins.
+	// if m == 1  there are no move for player 1 so player 2 win
+	// then come second case that
 	if m == 1 || n%2 == 0 {
+		return 2
+	}
+
+	return 1
+}
+
+func towerBreakersBruteForce(n int32, m int32) int32 {
+	// Write your code here
+
+	//m heigth , n  number of tower
+
+	// if m == 1  there are no move for player 1 so player 2 win
+	// then come second case that
+	if m == 1 {
 		return 2
 	}
 
